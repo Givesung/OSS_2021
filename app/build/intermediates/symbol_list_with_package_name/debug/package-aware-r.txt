@@ -1814,6 +1814,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id back
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -1849,6 +1850,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id collapseActionView
+id confirm
 id confirm_button
 id container
 id content
@@ -1913,6 +1915,7 @@ id forever
 id frame
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
@@ -2031,9 +2034,11 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id phone
 id pin
 id position
 id postLayout
+id profileImage
 id progress_circular
 id progress_horizontal
 id radio
@@ -2226,6 +2231,7 @@ layout activity_choose_login_registration
 layout activity_login
 layout activity_main
 layout activity_registration
+layout activity_settings
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog

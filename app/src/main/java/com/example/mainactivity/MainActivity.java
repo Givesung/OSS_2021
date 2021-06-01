@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private String currentUId;
     private DatabaseReference userDb;
 
+    private Button mLogout, mSetting;
+
     ListView listView;
     List<cards> rowItems;
 
@@ -46,8 +49,26 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         currentUId = mAuth.getCurrentUser().getUid();
-        
 
+        /*
+        mLogout = findViewById(R.id.logout);
+        mSetting = findViewById(R.id.setting);
+
+
+        mLogout.setOnClickListener(view->{
+            Intent intent = new Intent(MainActivity.this, ChooseLoginRegistrationActivity.class); // MainActivity -> ChooseLoginRegistrationActivity
+            startActivity(intent);
+            finish();
+            return;
+        });
+        mSetting.setOnClickListener(view->{
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+
+            startActivity(intent);
+
+            return;
+        });
+*/
         checkUserSex();
 
 
@@ -216,12 +237,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //로그아웃
+
     public void logoutUser(View view) {
-    mAuth.signOut();
-    Intent intent = new Intent(MainActivity.this, ChooseLoginRegistrationActivity.class); // MainActivity -> ChooseLoginRegistrationActivity
-    startActivity(intent);
-    finish();
-    return;
+        mAuth.signOut();
+        Intent intent = new Intent(MainActivity.this, ChooseLoginRegistrationActivity.class); // MainActivity -> ChooseLoginRegistrationActivity
+        startActivity(intent);
+        finish();
+        return;
     }
+
+    public void goToSettings(View view) {
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+
+        startActivity(intent);
+
+        return;
+    }
+
 }
