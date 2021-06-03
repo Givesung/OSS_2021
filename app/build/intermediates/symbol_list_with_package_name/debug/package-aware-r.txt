@@ -1738,6 +1738,9 @@ id BOTTOM_START
 id CTRL
 id FUNCTION
 id META
+id MatchImage
+id MatchName
+id Matchid
 id NO_DEBUG
 id SHIFT
 id SHOW_ALL
@@ -1956,6 +1959,7 @@ id listMode
 id list_item
 id login
 id masked
+id matches
 id material_clock_display
 id material_clock_face
 id material_clock_hand
@@ -2045,6 +2049,7 @@ id radio
 id radioGroup
 id ratio
 id rectangles
+id recyclerView
 id register
 id reverseSawtooth
 id right
@@ -2076,10 +2081,12 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id setting
 id shortcut
 id showCustom
 id showHome
 id showTitle
+id signout
 id sin
 id skipCollapsed
 id slide
@@ -2230,6 +2237,7 @@ layout abc_tooltip
 layout activity_choose_login_registration
 layout activity_login
 layout activity_main
+layout activity_matches
 layout activity_registration
 layout activity_settings
 layout browser_actions_context_menu_page
@@ -2251,6 +2259,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout item
+layout item_matches
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

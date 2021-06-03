@@ -8,15 +8,24 @@ com/example/mainactivity/MainActivity.java
  com.example.mainactivity.MainActivity$3
  com.example.mainactivity.MainActivity$4
  com.example.mainactivity.MainActivity$5
- com.example.mainactivity.MainActivity$6
-com/example/mainactivity/arrayAdapter.java
- com.example.mainactivity.arrayAdapter
+com/example/mainactivity/Matches/MatchesViewHolder.java
+ com.example.mainactivity.Matches.MatchesViewHolder
+com/example/mainactivity/Matches/MatchesActivity.java
+ com.example.mainactivity.Matches.MatchesActivity
+ com.example.mainactivity.Matches.MatchesActivity$1
+ com.example.mainactivity.Matches.MatchesActivity$2
+com/example/mainactivity/Cards/arrayAdapter.java
+ com.example.mainactivity.Cards.arrayAdapter
+com/example/mainactivity/Matches/MatchesAdapter.java
+ com.example.mainactivity.Matches.MatchesAdapter
+com/example/mainactivity/Matches/MatchesObject.java
+ com.example.mainactivity.Matches.MatchesObject
 com/example/mainactivity/ChooseLoginRegistrationActivity.java
  com.example.mainactivity.ChooseLoginRegistrationActivity
 com/example/mainactivity/BuildConfig.java
  com.example.mainactivity.BuildConfig
-com/example/mainactivity/cards.java
- com.example.mainactivity.cards
+com/example/mainactivity/Cards/cards.java
+ com.example.mainactivity.Cards.cards
 com/example/mainactivity/RegistrationActivity.java
  com.example.mainactivity.RegistrationActivity
  com.example.mainactivity.RegistrationActivity$1
@@ -26,6 +35,5 @@ com/example/mainactivity/SettingsActivity.java
  com.example.mainactivity.SettingsActivity$1
  com.example.mainactivity.SettingsActivity$2
  com.example.mainactivity.SettingsActivity$3
- com.example.mainactivity.SettingsActivity$4
- com.example.mainactivity.SettingsActivity$5
- com.example.mainactivity.SettingsActivity$6
+ com.example.mainactivity.SettingsActivity$3$1
+ com.example.mainactivity.SettingsActivity$3$2

@@ -1,11 +1,13 @@
-package com.example.mainactivity;
+package com.example.mainactivity.Cards;
 
 public class cards {
     private String userId;
     private String name;
+    private String profileImageUrl;
     public cards (String userId, String name) {
         this.userId = userId;
         this.name = name;
+        this.profileImageUrl = profileImageUrl;
     }
 
     public String getUserId() {
@@ -20,5 +22,10 @@ public class cards {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getProfileImageUrl() {return profileImageUrl;}
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 }

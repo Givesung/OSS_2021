@@ -8,6 +8,8 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="30" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
     <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -25,6 +27,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.MainActivity" >
+        <activity android:name="com.example.mainactivity.Matches.MatchesActivity" />
         <activity android:name="com.example.mainactivity.MainActivity" />
         <activity android:name="com.example.mainactivity.ChooseLoginRegistrationActivity" >
             <intent-filter>
@@ -35,6 +38,7 @@
         </activity>
         <activity android:name="com.example.mainactivity.RegistrationActivity" />
         <activity android:name="com.example.mainactivity.LoginActivity" />
+        <activity android:name="com.example.mainactivity.SettingsActivity" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"

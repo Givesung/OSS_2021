@@ -3,12 +3,13 @@ package com.example.mainactivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.mainactivity.Cards.arrayAdapter;
+import com.example.mainactivity.Cards.cards;
+import com.example.mainactivity.Matches.MatchesActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -28,14 +29,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private cards cards_data[];
-    private arrayAdapter arrayAdapter;
+    private com.example.mainactivity.Cards.arrayAdapter arrayAdapter;
     private int i;
 
     private FirebaseAuth mAuth;
     private String currentUId;
-    private DatabaseReference userDb;
+    private DatabaseReference usersDb;
 
-    private Button mLogout, mSetting;
+    private Button mSignout, mSetting, mMatches;
 
     ListView listView;
     List<cards> rowItems;
@@ -45,17 +46,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userDb = FirebaseDatabase.getInstance().getReference().child("Users");
+        usersDb = FirebaseDatabase.getInstance().getReference().child("Users");
 
         mAuth = FirebaseAuth.getInstance();
         currentUId = mAuth.getCurrentUser().getUid();
 
-        /*
-        mLogout = findViewById(R.id.logout);
+        checkUserSex();
+
+
+        mSignout = findViewById(R.id.signout);
         mSetting = findViewById(R.id.setting);
+        mMatches = findViewById(R.id.matches);
 
 
-        mLogout.setOnClickListener(view->{
+        mSignout.setOnClickListener(view->{
+            mAuth.signOut();
             Intent intent = new Intent(MainActivity.this, ChooseLoginRegistrationActivity.class); // MainActivity -> ChooseLoginRegistrationActivity
             startActivity(intent);
             finish();
@@ -63,13 +68,16 @@ public class MainActivity extends AppCompatActivity {
         });
         mSetting.setOnClickListener(view->{
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-
             startActivity(intent);
 
             return;
         });
-*/
-        checkUserSex();
+        mMatches.setOnClickListener(view->{
+            Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
+            startActivity(intent);
+
+            return;
+        });
 
 
         rowItems = new ArrayList<cards>(); // 카드 배열들
@@ -97,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             public void onLeftCardExit(Object dataObject) {
                 cards object = (cards) dataObject;
                 String userId = object.getUserId();
-                userDb.child(userSexOpp).child(userId).child("connection").child("nope").child(currentUId).setValue(true); //왼쪽으로 넘기면 connection 노드 -> nope 노드의 값을 true
+                usersDb.child(userId).child("connection").child("nope").child(currentUId).setValue(true); //왼쪽으로 넘기면 connection 노드 -> nope 노드의 값을 true
 
                 Toast.makeText(MainActivity.this, "Nope!", Toast.LENGTH_SHORT).show();
             }
@@ -107,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             public void onRightCardExit(Object dataObject) {
                 cards object = (cards) dataObject;
                 String userId = object.getUserId();
-                userDb.child(userSexOpp).child(userId).child("connection").child("like").child(currentUId).setValue(true); //오른쪽으로 넘기면 connection 노드 -> like 노드 -> 현재 유저의 노드 값을 true
+                usersDb.child(userId).child("connection").child("like").child(currentUId).setValue(true); //오른쪽으로 넘기면 connection 노드 -> like 노드 -> 현재 유저의 노드 값을 true
                 isConnectionMatch(userId);
                 Toast.makeText(MainActivity.this, "Like!", Toast.LENGTH_SHORT).show();
             }
@@ -134,14 +142,14 @@ public class MainActivity extends AppCompatActivity {
     }
     //매칭 함수
     private void isConnectionMatch(String userId) {
-        DatabaseReference currentUserConnectionsDb = userDb.child(userSex).child(currentUId).child("connection").child("like").child(userId); // 나에게 like를 보낸 유저
+        DatabaseReference currentUserConnectionsDb = usersDb.child(currentUId).child("connection").child("like").child(userId); // 나에게 like를 보낸 유저
         currentUserConnectionsDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     Toast.makeText(MainActivity.this, "new Connection" , Toast.LENGTH_SHORT).show();
-                    userDb.child(userSexOpp).child(snapshot.getKey()).child("connection").child("matches").child(currentUId).setValue(true);  //"나"의 matches 노드에 "나에게 like를 보낸 유저"의 노드 값을 true
-                    userDb.child(userSex).child(currentUId).child("connection").child("matches").child(snapshot.getKey()).setValue(true);  //"나에게 like를 보낸 유저"의 matches 노드에 "나"의 노드 값을 true
+                    usersDb.child(snapshot.getKey()).child("connection").child("matches").child(currentUId).setValue(true);  //"나"의 matches 노드에 "나에게 like를 보낸 유저"의 노드 값을 true
+                    usersDb.child(currentUId).child("connection").child("matches").child(snapshot.getKey()).setValue(true);  //"나에게 like를 보낸 유저"의 matches 노드에 "나"의 노드 값을 true
                 }
 
             }
@@ -155,68 +163,47 @@ public class MainActivity extends AppCompatActivity {
 
     private String userSex; // 사용자의 성별
     private String userSexOpp; // 사용자의 반대 성별
+
     public void checkUserSex() {
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        // maleDb의 이벤트리스너
-        DatabaseReference maleDb = FirebaseDatabase.getInstance().getReference().child("Users").child("Male");
-        maleDb.addChildEventListener(new ChildEventListener() {
+        // userDb의 이벤트리스너
+        DatabaseReference userDb = usersDb.child(user.getUid());
+        userDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.getKey().equals(user.getUid())) {
-                    userSex = "Male";
-                    userSexOpp = "Female";
-                    getOppositeSexUsers();
-                }
-            }
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
+                    if (snapshot.exists()){
+                        if (snapshot.child("sex").getValue() != null){
+                            userSex = snapshot.child("sex").getValue().toString();
+                            switch (userSex){
+                                case "Male":
+                                    userSexOpp = "Female";
+                                    break;
+                                case "Female":
+                                    userSexOpp = "Male";
+                                    break;
+                            }
+                            getOppositeSexUsers();
+                        }
+                    }
 
-        //femaleDb의 이벤트리스너
-        DatabaseReference femaleDb = FirebaseDatabase.getInstance().getReference().child("Users").child("Female");
-        femaleDb.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if (snapshot.getKey().equals(user.getUid())) {
-                    userSex = "Female";
-                    userSexOpp = "Male";
-                    getOppositeSexUsers();
                 }
             }
             @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
 
     //반대 성별의 유저함수
     public void getOppositeSexUsers() {
-        DatabaseReference oppositeSexDb = FirebaseDatabase.getInstance().getReference().child("Users").child(userSexOpp);
-        oppositeSexDb.addChildEventListener(new ChildEventListener() {
+        usersDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 // nope 또는 like의 유저 값이 true가 아니면 카드 배열에 추가
-               if(snapshot.exists() && !snapshot.child("connection").child("nope").hasChild(currentUId) && !snapshot.child("connection").child("like").hasChild(currentUId)) {
+               if(snapshot.exists() && !snapshot.child("connection").child("nope").hasChild(currentUId) && !snapshot.child("connection").child("like").hasChild(currentUId) && snapshot.child("sex").getValue().toString().equals(userSexOpp)) {
                    cards item = new cards(snapshot.getKey(), snapshot.child("name").getValue().toString()); //반대 성별의 name을 카드 배열에 추가한다
                    rowItems.add(item);
                    arrayAdapter.notifyDataSetChanged();
@@ -237,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+/*
     public void logoutUser(View view) {
         mAuth.signOut();
         Intent intent = new Intent(MainActivity.this, ChooseLoginRegistrationActivity.class); // MainActivity -> ChooseLoginRegistrationActivity
@@ -248,10 +235,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToSettings(View view) {
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-
         startActivity(intent);
-
         return;
     }
 
+    public void goToMatches(View view) {
+        Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
+        startActivity(intent);
+        return;
+    } */
 }

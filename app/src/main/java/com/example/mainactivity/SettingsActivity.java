@@ -53,13 +53,13 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        mNameField = (EditText) findViewById(R.id.name);
-        mPhoneField = (EditText) findViewById(R.id.phone);
+        mNameField = findViewById(R.id.name);
+        mPhoneField = findViewById(R.id.phone);
 
-        mProfileImage = (ImageView) findViewById(R.id.profileImage);
+        mProfileImage = findViewById(R.id.profileImage);
 
-        mBack = (Button) findViewById(R.id.back);
-        mConfirm = (Button) findViewById(R.id.confirm);
+        mBack = findViewById(R.id.back);
+        mConfirm = findViewById(R.id.confirm);
 
         mAuth = FirebaseAuth.getInstance();
         userId = mAuth.getCurrentUser().getUid();
@@ -76,18 +76,10 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
-        mConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                saveUserInformation();
-            }
-        });
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                return;
-            }
+        mConfirm.setOnClickListener(view -> saveUserInformation());
+        mBack.setOnClickListener(view -> {
+            finish();
+            return;
         });
 
 
@@ -111,7 +103,7 @@ public class SettingsActivity extends AppCompatActivity {
                     if(map.get("sex")!=null){
                         userSex = map.get("sex").toString();
                     }
-                    Glide.get(mProfileImage.getContext()).clearMemory();
+                    Glide.with(mProfileImage.getContext()).clear(mProfileImage);
                     if(map.get("profileImageUrl")!=null){
                         profileImageUrl = map.get("profileImageUrl").toString();
                         switch(profileImageUrl){
@@ -138,9 +130,13 @@ public class SettingsActivity extends AppCompatActivity {
         name = mNameField.getText().toString();
         phone = mPhoneField.getText().toString();
 
+
+
+
         Map userInfo = new HashMap();
         userInfo.put("name", name);
         userInfo.put("phone", phone);
+
         mUserDatabase.updateChildren(userInfo);
         if(resultUri != null){
             StorageReference filepath = FirebaseStorage.getInstance().getReference().child("profileImages").child(userId);
@@ -156,22 +152,29 @@ public class SettingsActivity extends AppCompatActivity {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos);
             byte[] data = baos.toByteArray();
             UploadTask uploadTask = filepath.putBytes(data);
-            uploadTask.addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    finish();
-                }
-            });
+            uploadTask.addOnFailureListener(e -> finish());
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                    Map userInfo = new HashMap();
-                    userInfo.put("profileImageUrl", taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
-                    mUserDatabase.updateChildren(userInfo);
+                    StorageReference filePath = taskSnapshot.getStorage();
+                    filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Map newImage = new HashMap();
+                            newImage.put("profileImageUrl", uri.toString());
+                            mUserDatabase.updateChildren(userInfo);
 
-                    finish();
-                    return;
+                            finish();
+                            return;
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            finish();
+                            return;
+                        }
+                    });
                 }
             });
         }else{

@@ -14,7 +14,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="logoutUser"
+            android:id="@+id/signout"
             android:text="SignOut"
             app:layout_constraintStart_toStartOf="@+id/frame"
             app:layout_constraintTop_toTopOf="@+id/frame" />
@@ -22,7 +22,13 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="goToSettings"
+            android:id="@+id/matches"
+            android:text="Matches" />
+        <Button
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/setting"
             android:text="Setting" />
     </LinearLayout>
 
@@ -31,7 +37,7 @@
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffeee9e2"
+        android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

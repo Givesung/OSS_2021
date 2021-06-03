@@ -20,6 +20,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RegistrationActivity extends AppCompatActivity {
 
     private Button mRegister;
@@ -76,9 +79,14 @@ public class RegistrationActivity extends AppCompatActivity {
                     }
                     else {
                         String userId = mAuth.getCurrentUser().getUid(); //파이어베이스 Authentication의 User ID를 가져옴
-                        DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReference().child("Users").child(radioButton.getText().toString()).child(userId).child("name");
-                                                                //DB의 Users 노드 -> 라디오버튼에 해당하는 성별 노드(Female, Male) -> (사용자의 ID에 기반한 노드 생성) ->name 노드
-                        currentUserDb.setValue(name); // 사용자가 입력한 이름을 DB의 name노드에 저장함
+                        DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+                        //DB의 Users 노드 -> 라디오버튼에 해당하는 성별 노드(Female, Male) -> (사용자의 ID에 기반한 노드 생성) ->name 노드
+                        Map userInfo = new HashMap<>();
+                        userInfo.put("name", name);
+                        userInfo.put("sex", radioButton.getText().toString());
+                        userInfo.put("profileImageUrl", "defalut");
+
+                        currentUserDb.updateChildren(userInfo); // 사용자가 입력한 이름을 DB의 name노드에 저장함
                     }
                 }
             });
