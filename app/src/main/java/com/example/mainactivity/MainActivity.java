@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.example.mainactivity.Cards.arrayAdapter;
 import com.example.mainactivity.Cards.cards;
+import com.example.mainactivity.Choice.ChoiceActivity;
 import com.example.mainactivity.Matches.MatchesActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private String currentUId;
     private DatabaseReference usersDb;
 
-    private Button mSignout, mSetting, mMatches;
+    private Button mSignout, mSetting, mMatches, mLikes;
 
     ListView listView;
     List<cards> rowItems;
@@ -53,11 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
         checkUserSex();
 
-
         mSignout = findViewById(R.id.signout);
         mSetting = findViewById(R.id.setting);
         mMatches = findViewById(R.id.matches);
-
+        mLikes = findViewById(R.id.likes);
 
         mSignout.setOnClickListener(view->{
             mAuth.signOut();
@@ -69,19 +69,20 @@ public class MainActivity extends AppCompatActivity {
         mSetting.setOnClickListener(view->{
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
-
+            return;
+        });
+        mLikes.setOnClickListener(view->{
+            Intent intent = new Intent(MainActivity.this, ChoiceActivity.class);
+            startActivity(intent);
             return;
         });
         mMatches.setOnClickListener(view->{
             Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
             startActivity(intent);
-
             return;
         });
 
-
         rowItems = new ArrayList<cards>(); // 카드 배열들
-
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems ); //카드마다 al의 텍스트를 출력, item은 텍스트뷰, 색깔
 
         //al.add("java") <- 실행은 되지만 이것만 쓰면 앱 상에선 출력이 되질않음
@@ -120,17 +121,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Like!", Toast.LENGTH_SHORT).show();
             }
 
-
             //카드를 다 소진 시켰을 때
             @Override
-            public void onAdapterAboutToEmpty(int itemsInAdapter) {
-            }
+            public void onAdapterAboutToEmpty(int itemsInAdapter) { }
 
             @Override
-            public void onScroll(float scrollProgressPercent) {
-            }
+            public void onScroll(float scrollProgressPercent) { }
         });
-
 
         // Optionally add an OnItemClickListener
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
@@ -148,16 +145,16 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     Toast.makeText(MainActivity.this, "new Connection" , Toast.LENGTH_SHORT).show();
-                    usersDb.child(snapshot.getKey()).child("connection").child("matches").child(currentUId).setValue(true);  //"나"의 matches 노드에 "나에게 like를 보낸 유저"의 노드 값을 true
-                    usersDb.child(currentUId).child("connection").child("matches").child(snapshot.getKey()).setValue(true);  //"나에게 like를 보낸 유저"의 matches 노드에 "나"의 노드 값을 true
+
+                    String key = FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
+
+                    usersDb.child(snapshot.getKey()).child("connection").child("matches").child(currentUId).child("ChatId").setValue(key); //"나"의 matches 노드 -> "나에게 like를 보낸 유저"의 노드 -> ChatId 추가
+                    usersDb.child(currentUId).child("connection").child("matches").child(snapshot.getKey()).child("ChatId").setValue(key); //"나"에게 like를 보낸 유저"의 matches 노드 -> "나"의 노드 -> ChatId 추가
+                    //usersDb.child(currentUId).child("connection").child("matches").child(snapshot.getKey()).setValue(true);
                 }
-
             }
-
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) { }
         });
     }
 

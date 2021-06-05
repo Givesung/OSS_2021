@@ -27,7 +27,6 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.MainActivity" >
-        <activity android:name="com.example.mainactivity.Matches.MatchesActivity" />
         <activity android:name="com.example.mainactivity.MainActivity" />
         <activity android:name="com.example.mainactivity.ChooseLoginRegistrationActivity" >
             <intent-filter>
@@ -38,6 +37,9 @@
         </activity>
         <activity android:name="com.example.mainactivity.RegistrationActivity" />
         <activity android:name="com.example.mainactivity.LoginActivity" />
+        <activity android:name="com.example.mainactivity.Matches.MatchesActivity" />
+        <activity android:name="com.example.mainactivity.Likes.LikesActivity" />
+        <activity android:name="com.example.mainactivity.Chat.ChatActivity" />
         <activity android:name="com.example.mainactivity.SettingsActivity" />
 
         <service

@@ -1736,6 +1736,9 @@ int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
 int id CTRL 0x7f080003
 int id FUNCTION 0x7f080004
+int id LikesId 0x7f0801bc
+int id LikesImage 0x7f0801bd
+int id LikesName 0x7f0801be
 int id META 0x7f080005
 int id MatchImage 0x7f0801b8
 int id MatchName 0x7f0801b9
@@ -1951,6 +1954,7 @@ int id layout 0x7f0800d6
 int id left 0x7f0800d7
 int id leftToRight 0x7f0800d8
 int id light 0x7f0800d9
+int id likes 0x7f0801bf
 int id line1 0x7f0800da
 int id line3 0x7f0800db
 int id linear 0x7f0800dc
@@ -2080,6 +2084,8 @@ int id search_voice_btn 0x7f080157
 int id select_dialog_listview 0x7f080158
 int id selected 0x7f080159
 int id selection_type 0x7f08015a
+int id send 0x7f0801ba
+int id sendLayout 0x7f0801c0
 int id setting 0x7f08015b
 int id shortcut 0x7f08015c
 int id showCustom 0x7f08015d
@@ -2233,7 +2239,9 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_chat 0x7f0b0078
 int layout activity_choose_login_registration 0x7f0b001c
+int layout activity_likes 0x7f0b007a
 int layout activity_login 0x7f0b001d
 int layout activity_main 0x7f0b001e
 int layout activity_matches 0x7f0b001f
@@ -2258,6 +2266,8 @@ int layout design_navigation_menu_item 0x7f0b0031
 int layout design_text_input_end_icon 0x7f0b0032
 int layout design_text_input_start_icon 0x7f0b0033
 int layout item 0x7f0b0034
+int layout item_chat 0x7f0b007c
+int layout item_likes 0x7f0b007b
 int layout item_matches 0x7f0b0035
 int layout material_chip_input_combo 0x7f0b0036
 int layout material_clock_display 0x7f0b0037

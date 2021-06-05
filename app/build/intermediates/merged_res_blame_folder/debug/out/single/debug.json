@@ -32,6 +32,10 @@
         "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
+        "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_chat.xml.flat",
+        "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\src\\main\\res\\layout\\activity_chat.xml"
+    },
+    {
         "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
@@ -42,6 +46,10 @@
     {
         "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_likes.xml.flat",
+        "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\src\\main\\res\\layout\\item_likes.xml"
     },
     {
         "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
@@ -80,6 +88,10 @@
         "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_likes.xml.flat",
+        "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\src\\main\\res\\layout\\activity_likes.xml"
+    },
+    {
         "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_matches.xml.flat",
         "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\src\\main\\res\\layout\\item_matches.xml"
     },
@@ -90,6 +102,10 @@
     {
         "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_matches.xml.flat",
         "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\src\\main\\res\\layout\\activity_matches.xml"
+    },
+    {
+        "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_chat.xml.flat",
+        "source": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\src\\main\\res\\layout\\item_chat.xml"
     },
     {
         "merged": "C:\\Users\\56thf\\Desktop\\OSS_2021-12\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",

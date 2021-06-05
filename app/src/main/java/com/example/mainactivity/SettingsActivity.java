@@ -76,22 +76,28 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
-        mConfirm.setOnClickListener(view -> saveUserInformation());
-        mBack.setOnClickListener(view -> {
-            finish();
-            return;
+        mConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveUserInformation();
+            }
         });
-
-
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                return;
+            }
+        });
     }
 
 
     private void getUserInfo() {
         mUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists() && dataSnapshot.getChildrenCount()>0){
-                    Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
+            public void onDataChange(DataSnapshot snapshot) {
+                if(snapshot.exists() && snapshot.getChildrenCount()>0){
+                    Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
                     if(map.get("name")!=null){
                         name = map.get("name").toString();
                         mNameField.setText(name);
@@ -117,27 +123,20 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
+            public void onCancelled(DatabaseError databaseError) { }
         });
-
     }
 
     private void saveUserInformation() {
         name = mNameField.getText().toString();
         phone = mPhoneField.getText().toString();
 
-
-
-
         Map userInfo = new HashMap();
         userInfo.put("name", name);
         userInfo.put("phone", phone);
-
         mUserDatabase.updateChildren(userInfo);
+
         if(resultUri != null){
             StorageReference filepath = FirebaseStorage.getInstance().getReference().child("profileImages").child(userId);
             Bitmap bitmap = null;
@@ -157,25 +156,27 @@ public class SettingsActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                    StorageReference filePath = taskSnapshot.getStorage();
-                    filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Map newImage = new HashMap();
-                            newImage.put("profileImageUrl", uri.toString());
+                   // StorageReference filePath = taskSnapshot.getStorage();
+                   // filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    //    @Override
+                    //    public void onSuccess(Uri uri) {
+                            String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
+
+                            Map userInfo = new HashMap();
+                            userInfo.put("profileImageUrl", downloadUrl);
                             mUserDatabase.updateChildren(userInfo);
 
                             finish();
                             return;
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            finish();
-                            return;
-                        }
-                    });
-                }
+                  //  }).addOnFailureListener(new OnFailureListener() {
+                   //     @Override
+                   //     public void onFailure(@NonNull Exception exception) {
+                   //         finish();
+                   //         return;
+                   //   }
+                  //  });
+              //  }
             });
         }else{
             finish();

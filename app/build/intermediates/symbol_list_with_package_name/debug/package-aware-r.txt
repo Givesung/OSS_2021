@@ -1737,6 +1737,9 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id LikesId
+id LikesImage
+id LikesName
 id META
 id MatchImage
 id MatchName
@@ -1952,6 +1955,7 @@ id layout
 id left
 id leftToRight
 id light
+id likes
 id line1
 id line3
 id linear
@@ -2081,6 +2085,8 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id send
+id sendLayout
 id setting
 id shortcut
 id showCustom
@@ -2234,7 +2240,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_chat
 layout activity_choose_login_registration
+layout activity_likes
 layout activity_login
 layout activity_main
 layout activity_matches
@@ -2259,6 +2267,8 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout item
+layout item_chat
+layout item_likes
 layout item_matches
 layout material_chip_input_combo
 layout material_clock_display

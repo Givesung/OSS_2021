@@ -22,6 +22,12 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/likes"
+            android:text="Likes" />
+        <Button
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/matches"
             android:text="Matches" />
         <Button

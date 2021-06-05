@@ -28,7 +28,6 @@ public class MatchesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matches);
-
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         mRecyclerView = findViewById(R.id.recyclerView);

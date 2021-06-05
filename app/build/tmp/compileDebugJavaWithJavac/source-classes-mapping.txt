@@ -1,6 +1,11 @@
-com/example/mainactivity/LoginActivity.java
- com.example.mainactivity.LoginActivity
- com.example.mainactivity.LoginActivity$1
+com/example/mainactivity/Likes/LikesObject.java
+ com.example.mainactivity.Likes.LikesObject
+com/example/mainactivity/BuildConfig.java
+ com.example.mainactivity.BuildConfig
+com/example/mainactivity/Matches/MatchesObject.java
+ com.example.mainactivity.Matches.MatchesObject
+com/example/mainactivity/Cards/cards.java
+ com.example.mainactivity.Cards.cards
 com/example/mainactivity/MainActivity.java
  com.example.mainactivity.MainActivity
  com.example.mainactivity.MainActivity$1
@@ -8,32 +13,46 @@ com/example/mainactivity/MainActivity.java
  com.example.mainactivity.MainActivity$3
  com.example.mainactivity.MainActivity$4
  com.example.mainactivity.MainActivity$5
-com/example/mainactivity/Matches/MatchesViewHolder.java
- com.example.mainactivity.Matches.MatchesViewHolder
 com/example/mainactivity/Matches/MatchesActivity.java
  com.example.mainactivity.Matches.MatchesActivity
  com.example.mainactivity.Matches.MatchesActivity$1
  com.example.mainactivity.Matches.MatchesActivity$2
-com/example/mainactivity/Cards/arrayAdapter.java
- com.example.mainactivity.Cards.arrayAdapter
+com/example/mainactivity/Chat/ChatObject.java
+ com.example.mainactivity.Chat.ChatObject
 com/example/mainactivity/Matches/MatchesAdapter.java
  com.example.mainactivity.Matches.MatchesAdapter
-com/example/mainactivity/Matches/MatchesObject.java
- com.example.mainactivity.Matches.MatchesObject
-com/example/mainactivity/ChooseLoginRegistrationActivity.java
- com.example.mainactivity.ChooseLoginRegistrationActivity
-com/example/mainactivity/BuildConfig.java
- com.example.mainactivity.BuildConfig
-com/example/mainactivity/Cards/cards.java
- com.example.mainactivity.Cards.cards
-com/example/mainactivity/RegistrationActivity.java
- com.example.mainactivity.RegistrationActivity
- com.example.mainactivity.RegistrationActivity$1
- com.example.mainactivity.RegistrationActivity$2
+com/example/mainactivity/Chat/ChatViewHolder.java
+ com.example.mainactivity.Chat.ChatViewHolder
+com/example/mainactivity/Likes/LikesActivity.java
+ com.example.mainactivity.Likes.LikesActivity
+ com.example.mainactivity.Likes.LikesActivity$1
+ com.example.mainactivity.Likes.LikesActivity$2
 com/example/mainactivity/SettingsActivity.java
  com.example.mainactivity.SettingsActivity
  com.example.mainactivity.SettingsActivity$1
  com.example.mainactivity.SettingsActivity$2
  com.example.mainactivity.SettingsActivity$3
- com.example.mainactivity.SettingsActivity$3$1
- com.example.mainactivity.SettingsActivity$3$2
+com/example/mainactivity/LoginActivity.java
+ com.example.mainactivity.LoginActivity
+ com.example.mainactivity.LoginActivity$1
+com/example/mainactivity/RegistrationActivity.java
+ com.example.mainactivity.RegistrationActivity
+ com.example.mainactivity.RegistrationActivity$1
+ com.example.mainactivity.RegistrationActivity$2
+com/example/mainactivity/Likes/LikesViewHolder.java
+ com.example.mainactivity.Likes.LikesViewHolder
+com/example/mainactivity/Cards/arrayAdapter.java
+ com.example.mainactivity.Cards.arrayAdapter
+com/example/mainactivity/Likes/LikesAdapter.java
+ com.example.mainactivity.Likes.LikesAdapter
+com/example/mainactivity/ChooseLoginRegistrationActivity.java
+ com.example.mainactivity.ChooseLoginRegistrationActivity
+com/example/mainactivity/Matches/MatchesViewHolder.java
+ com.example.mainactivity.Matches.MatchesViewHolder
+com/example/mainactivity/Chat/ChatAdapter.java
+ com.example.mainactivity.Chat.ChatAdapter
+com/example/mainactivity/Chat/ChatActivity.java
+ com.example.mainactivity.Chat.ChatActivity
+ com.example.mainactivity.Chat.ChatActivity$1
+ com.example.mainactivity.Chat.ChatActivity$2
+ com.example.mainactivity.Chat.ChatActivity$3

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-31:12
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\56thf\.gradle\caches\transforms-2\files-2.1\9feb6959001be92bd2244dcada9857da\material-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\56thf\.gradle\caches\transforms-2\files-2.1\3b8298ded0b2d9e0de82d72f7d2d83ac\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\56thf\.gradle\caches\transforms-2\files-2.1\03dba3ffd83830003d9e7c51185ecce6\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -71,20 +71,20 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\56thf\.gradle
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\56thf\.gradle\caches\transforms-2\files-2.1\0cf45ac27d883fec1562c604e4e419d0\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\56thf\.gradle\caches\transforms-2\files-2.1\5638339a343433508d77f575b3c34252\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\56thf\.gradle\caches\transforms-2\files-2.1\d1b6d67ca4bef95490cecd069dc471fa\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:3:5-39
 		INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:2:11-69
@@ -93,7 +93,7 @@ ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:5
 	android:name
 		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:5:22-77
 application
-ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:7:5-26:19
+ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:7:5-29:19
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\56thf\.gradle\caches\transforms-2\files-2.1\9feb6959001be92bd2244dcada9857da\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\56thf\.gradle\caches\transforms-2\files-2.1\9feb6959001be92bd2244dcada9857da\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\56thf\.gradle\caches\transforms-2\files-2.1\3b8298ded0b2d9e0de82d72f7d2d83ac\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -162,10 +162,6 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\56
 		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
 		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:13:9-50
-activity#com.example.mainactivity.Matches.MatchesActivity
-ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:14:9-60
-	android:name
-		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:14:19-58
 activity#com.example.mainactivity.MainActivity
 ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:15:9-50
 	android:name
@@ -192,10 +188,22 @@ activity#com.example.mainactivity.LoginActivity
 ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:24:9-51
 	android:name
 		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:24:19-48
-activity#com.example.mainactivity.SettingsActivity
-ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:25:9-54
+activity#com.example.mainactivity.Matches.MatchesActivity
+ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:25:9-61
 	android:name
-		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:25:19-51
+		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:25:19-58
+activity#com.example.mainactivity.Likes.LikesActivity
+ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:26:9-56
+	android:name
+		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:26:19-54
+activity#com.example.mainactivity.Chat.ChatActivity
+ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:27:9-54
+	android:name
+		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:27:19-52
+activity#com.example.mainactivity.SettingsActivity
+ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:28:9-54
+	android:name
+		ADDED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml:28:19-51
 uses-sdk
 INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\56thf\Desktop\OSS_2021-12\app\src\main\AndroidManifest.xml
