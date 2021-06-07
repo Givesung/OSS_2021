@@ -87,6 +87,8 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveUserInformation();
+                Intent intent = new Intent(RegistrationActivity.this, FilteringActivity.class); // RegistrationActivity -> FilteringActivity
+                startActivity(intent);
             }
         });
         mPrevious.setOnClickListener(new View.OnClickListener() {
@@ -199,13 +201,11 @@ public class RegistrationActivity extends AppCompatActivity {
              uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                  @Override
                  public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
                      // StorageReference filePath = taskSnapshot.getStorage();
                      // filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                      //    @Override
                      //    public void onSuccess(Uri uri) {
                      String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
-
                      Map userInfo = new HashMap();
                     userInfo.put("profileImageUrl", downloadUrl);
                     mUserDatabase.updateChildren(userInfo);
