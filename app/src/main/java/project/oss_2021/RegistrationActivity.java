@@ -87,6 +87,8 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveUserInformation();
+                Intent intent = new Intent(RegistrationActivity.this, FilteringActivity.class); // RegistrationActivity -> FilteringActivity
+                startActivity(intent);
             }
         });
         mPrevious.setOnClickListener(new View.OnClickListener() {

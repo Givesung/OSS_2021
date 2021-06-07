@@ -31,11 +31,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import project.oss_2021.Choice.ChoiceActivity;
+
 public class SettingsActivity extends AppCompatActivity {
 
     private EditText mNameField, mPhoneField, mUniField;
 
-    private Button mPrevious, mConfirm;
+    private Button mPrevious, mConfirm, mFilter;
 
     private ImageView mProfileImage;
     private FirebaseAuth mAuth;
@@ -58,6 +60,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         mPrevious = findViewById(R.id.Previous);
         mConfirm = findViewById(R.id.confirm);
+        mFilter = findViewById(R.id.filter);
         mAuth = FirebaseAuth.getInstance();
         userId = mAuth.getCurrentUser().getUid();
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
@@ -70,10 +73,20 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+        mFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this, FilteringActivity.class); // SettingsActivity -> FilteringActivity
+                startActivity(intent);
+            }
+        });
         mConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveUserInformation();
+                Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+                startActivity(intent);
+
             }
         });
         mPrevious.setOnClickListener(new View.OnClickListener() {
@@ -163,41 +176,14 @@ public class SettingsActivity extends AppCompatActivity {
                         userInfo.put("profileImageUrl", downloadUrl.toString());
                         mUserDatabase.updateChildren(userInfo);
 
-                        finish();
+
                         return;
                     }
                 }
             });
-             /*
-             uploadTask.addOnFailureListener(e -> finish());
-             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                 @Override
-                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                     // StorageReference filePath = taskSnapshot.getStorage();
-                     // filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                     //    @Override
-                     //    public void onSuccess(Uri uri) {
-                     String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
-
-                     Map userInfo = new HashMap();
-                    userInfo.put("profileImageUrl", downloadUrl);
-                    mUserDatabase.updateChildren(userInfo);
-                     finish();
-                     return;
-                 }
-                 //  }).addOnFailureListener(new OnFailureListener() {
-                 //     @Override
-                 //     public void onFailure(@NonNull Exception exception) {
-                 //         finish();
-                 //         return;
-                 //   }
-                 //  });
-                 //  }
-             });
-             }); */
         }else{
-            finish();
+
         }
     }
     @Override
