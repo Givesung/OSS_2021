@@ -94,7 +94,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="가벼운 만남     "
+                android:text="가벼운 만남"
                 android:id="@+id/lightP"/>
             <RadioButton
                 android:layout_width="wrap_content"
